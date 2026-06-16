@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Um Sonho em Forma de Stephanie</title>
+<style>
+body{margin:0;font-family:Arial,sans-serif;background:#000;color:#fff;overflow:hidden}
+#intro{position:fixed;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:20px;background:linear-gradient(135deg,#ff4d88,#661133)}
+button{padding:15px 30px;border:none;border-radius:30px;font-size:20px;cursor:pointer}
+#content{display:none;height:100vh;position:relative}
+#bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(40%)}
+#overlay{position:absolute;inset:0;overflow:auto;padding:40px}
+.lyrics{max-width:900px;margin:auto;text-align:center;line-height:2}
+.final{font-size:1.6rem;margin-top:80px}
+</style>
+</head>
+<body>
+<div id="intro">
+<h1>❤️ Um Sonho em Forma de Stephanie ❤️</h1>
+<p>Uma história de amor que começou em um hospital e se tornou a melhor escolha da minha vida.</p>
+<button onclick="startMusic()">▶ Ouvir Nossa História</button>
+</div>
+<div id="content">
+<div id="bg"></div>
+<div id="overlay">
+<div class="lyrics">
+<h2>Um Sonho em Forma de Stephanie</h2>
+<p>Enquanto a música toca, relembre nossa história... ❤️</p>
+<div class="final">
+Stephanie,<br><br>
+Obrigado por cada sorriso, cada abraço e cada sonho compartilhado.<br><br>
+Você é a melhor escolha da minha vida.<br><br>
+Feliz aniversário, meu amor.<br><br>
+❤️ Keny ❤️
+</div>
+</div>
+</div>
+<audio id="audio" src="musica.mp3"></audio>
+</div>
+<script>
+const fotos=['foto1.jpg','foto2.jpg','foto3.jpg','foto4.webp'];
+let i=0;
+function troca(){document.getElementById('bg').style.backgroundImage=`url('${fotos[i]}')`;}
+function startMusic(){
+document.getElementById('intro').style.display='none';
+document.getElementById('content').style.display='block';
+document.getElementById('audio').play();
+troca();
+setInterval(()=>{i=(i+1)%fotos.length;troca();},15000);
+}
+</script>
+</body>
+</html>
